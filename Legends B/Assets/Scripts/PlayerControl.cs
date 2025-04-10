@@ -8,11 +8,13 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float moveSpeed = 7;
 
     private CharacterController characterController;
+    private Animator animator;
     private Vector3 targetPosition;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         targetPosition = transform.position;
     }
 
@@ -24,6 +26,11 @@ public class PlayerControl : MonoBehaviour
         {
             Vector3 direction = Vector3.Normalize(targetPosition- transform.position );
             characterController.Move(direction* moveSpeed* Time.deltaTime);
+            animator.SetBool("running", true);
+        }
+        else
+        {
+            animator.SetBool("running", false);
         }
 
         if(Input.GetMouseButtonDown(0))
