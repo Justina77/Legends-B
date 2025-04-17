@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
     [SerializeField] private float hitInterval = 0.5f;
+    public UnityEvent OnDeath;
 
     private float lastHitTime = 0;
     private int currentHealth;
@@ -39,6 +41,7 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             animator.SetTrigger("death");
+            OnDeath.Invoke();
             isDead = true;
         }
     }
