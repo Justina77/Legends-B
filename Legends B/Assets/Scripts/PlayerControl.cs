@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float moveSpeed = 7;
+    [SerializeField] private Collider[] weapons;
 
     private CharacterController characterController;
     private Animator animator;
@@ -13,9 +14,28 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        ToggleWeapons(false);
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         targetPosition = transform.position;
+    }
+
+    public void BeginAttack()
+    {
+        ToggleWeapons(true);
+    }
+
+    public void EndAttack()
+    {
+        ToggleWeapons(false);
+    }
+
+    private void ToggleWeapons(bool enable)
+    {
+        foreach (Collider weapon in weapons)
+        {
+            weapon.enabled = enable;
+        }
     }
 
 
