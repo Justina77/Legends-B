@@ -10,15 +10,17 @@ public class PlayerHealth : MonoBehaviour
     private float lastHitTime = 0;
     private int currenthealth;
     private Animator animator;
+    public static bool isAlive = true;
     void Awake()
     {
         currenthealth = startinghealth;
         animator = GetComponent<Animator>();
+        isAlive = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemyweapon") && Time.time - lastHitTime > hitInterval)
+        if(other.CompareTag("Enemyweapon") && isAlive && Time.time - lastHitTime > hitInterval)
         {
             TakeDamage(5);
         }
@@ -33,12 +35,9 @@ public class PlayerHealth : MonoBehaviour
             animator.SetTrigger("Hit");
         else
         {
+            isAlive = false;
             animator.SetTrigger("Death");
         }
     }
 
-    void Update()
-    {
-        
-    }
 }

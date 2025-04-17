@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         float distToTarget = Vector3.Distance(targetPosition, transform.position);
-        if(distToTarget > 1)
+        if(distToTarget > 0.5f && PlayerHealth.isAlive)
         {
             Vector3 direction = Vector3.Normalize(targetPosition- transform.position );
             characterController.Move(direction* moveSpeed* Time.deltaTime);
@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
             animator.SetBool("running", false);
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && PlayerHealth.isAlive)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && PlayerHealth.isAlive)
         {
             animator.SetTrigger(name: "Stab");
         }
