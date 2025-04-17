@@ -44,7 +44,11 @@ public class PlayerControl : MonoBehaviour
                 transform.LookAt(targetPosition);
             }
         }
-    }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetTrigger(name: "Stab");
+        }
+    }
 
 }
