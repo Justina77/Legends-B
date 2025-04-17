@@ -9,9 +9,11 @@ public class PlayerHealth : MonoBehaviour
 
     private float lastHitTime = 0;
     private int currenthealth;
-    void Start()
+    private Animator animator;
+    void Awake()
     {
         currenthealth = startinghealth;
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +29,12 @@ public class PlayerHealth : MonoBehaviour
         lastHitTime= Time.time;
         currenthealth -= damage;
         Debug.Log("Current health" + currenthealth);
+        if (currenthealth > 0)
+            animator.SetTrigger("Hit");
+        else
+        {
+            animator.SetTrigger("Death");
+        }
     }
 
     void Update()
