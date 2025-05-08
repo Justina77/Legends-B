@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int startinghealth;
     [SerializeField] private float hitInterval = 0.5f;
+    [SerializeField] private int healthGainedPerLevel = 10;
 
     private float lastHitTime = 0;
     private int currenthealth;
@@ -19,6 +20,12 @@ public class PlayerHealth : MonoBehaviour
         currentMaxHealth = startinghealth;
         animator = GetComponent<Animator>();
         isAlive = true;
+    }
+
+    public void OnLevelGained(int newLevel)
+    {
+        currentMaxHealth = startinghealth + (newLevel -1) * healthGainedPerLevel;
+        currenthealth = currentMaxHealth;
     }
 
     public float GetHealthRatio()
