@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Image healthGlode, manaGlobe;
+    [SerializeField] private Image healthGlobe, manaGlobe;
     [SerializeField] private Slider xpSlider;
     [SerializeField] private PlayerHealth health;
 
@@ -17,6 +17,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        healthGlobe.fillAmount = Mathf.Lerp(health.GetHealthRatio(), healthGlobe.fillAmount, 2 * Time.deltaTime);
+        healthGlobe.fillAmount = Mathf.Lerp(healthGlobe.fillAmount, health.GetHealthRatio(), 2 * Time.deltaTime);
     }
 }

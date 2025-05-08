@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Playerweapon"))
+        if (other.CompareTag("Playerweapon") && !isDead && Time.time -lastHitTime > hitInterval)
         {
             TakeDamage(10);
         }
