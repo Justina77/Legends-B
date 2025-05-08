@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("orc dead");
         isDead = true;
         agent.isStopped = false;
+        swordCollider.enabled = false;
     }
 
     private void Update()
