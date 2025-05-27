@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public Button restartButtonWin;
     public Button restartButtonLose;
+    public Button exitButton;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
         restartButtonWin.onClick.AddListener(RestartGame);
         restartButtonLose.onClick.AddListener(RestartGame);
+        exitButton.onClick.AddListener(ExitGame);
     }
 
     public void EnemyDefeated()
@@ -53,5 +55,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void ExitGame()
+    {
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
