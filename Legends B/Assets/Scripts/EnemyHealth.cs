@@ -23,6 +23,15 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
+
+        OnDeath.AddListener(() =>
+        {
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+            {
+                gm.EnemyDefeated();
+            }
+        });
     }
 
     private void OnTriggerEnter(Collider other)
