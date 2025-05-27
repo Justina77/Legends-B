@@ -43,15 +43,24 @@ public class PlayerHealth : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        lastHitTime= Time.time;
+        lastHitTime = Time.time;
         currenthealth -= damage;
-        Debug.Log("Current health" + currenthealth);
+        Debug.Log("Current health: " + currenthealth);
+
         if (currenthealth > 0)
+        {
             animator.SetTrigger("Hit");
+        }
         else
         {
             isAlive = false;
             animator.SetTrigger("Death");
+
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+            {
+                gm.GameOver();
+            }
         }
     }
 
