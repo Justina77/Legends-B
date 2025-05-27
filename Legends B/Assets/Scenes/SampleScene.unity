@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawn: {fileID: 5223339497898032275, guid: 35c4c2ff000a42444bea35fe7ff916aa, type: 3}
-  spawnCount: 10
+  spawnCount: 5
   spawnInterval: 5
   target: {fileID: 2046559845}
   startDelay: 5
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawn: {fileID: 5223339497898032275, guid: 35c4c2ff000a42444bea35fe7ff916aa, type: 3}
-  spawnCount: 10
+  spawnCount: 5
   spawnInterval: 5
   target: {fileID: 2046559845}
 --- !u!4 &1080364519
@@ -3347,7 +3347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawn: {fileID: 5223339497898032275, guid: 35c4c2ff000a42444bea35fe7ff916aa, type: 3}
-  spawnCount: 10
+  spawnCount: 5
   spawnInterval: 5
   target: {fileID: 2046559845}
 --- !u!4 &2070415356
