@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 30
   hitInterval: 0.5
-  xpToGive: 10
+  xpToGive: 30
   OnDeath:
     m_PersistentCalls:
       m_Calls:
